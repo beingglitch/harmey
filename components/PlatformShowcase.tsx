@@ -64,7 +64,7 @@ const platforms = [
   },
 ];
 
-function MockupDashboard({ stats }: { stats: any[] }) {
+function MockupDashboard({ stats = [] }: { stats?: any[] }) {
   return (
     <div className="bg-white rounded-lg p-4 shadow-lg border border-slate-200">
       <div className="flex items-center justify-between mb-4">
@@ -100,7 +100,7 @@ function MockupDashboard({ stats }: { stats: any[] }) {
   );
 }
 
-function MockupMobile({ creditLimit, available }: { creditLimit: string; available: string }) {
+function MockupMobile({ creditLimit = '₹0', available = '₹0' }: { creditLimit?: string; available?: string }) {
   return (
     <div className="w-48 mx-auto bg-slate-900 rounded-3xl p-2 shadow-2xl">
       <div className="bg-white rounded-2xl p-3 h-80 flex flex-col">
@@ -132,7 +132,7 @@ function MockupMobile({ creditLimit, available }: { creditLimit: string; availab
   );
 }
 
-function MockupAnalytics({ disbursed, recovery }: { disbursed: string; recovery: string }) {
+function MockupAnalytics({ disbursed = '₹0', recovery = '0%' }: { disbursed?: string; recovery?: string }) {
   return (
     <div className="bg-white rounded-lg p-4 shadow-lg border border-slate-200">
       <div className="flex items-center justify-between mb-4">
