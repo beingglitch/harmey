@@ -1,20 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const plusJakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Harmay - Construction Business Lending Made Simple",
-  description: "Harmay provides instant lending support for construction materials when your customers purchase from local providers. Grow your construction business with flexible payment terms and instant approvals.",
+  title: "Harmay - Smart Lending & Inventory Platform for Construction",
+  description: "Empowering construction material shops with instant customer financing, smart inventory management, and NBFC integration. Transform your business with Harmay's all-in-one platform.",
 };
 
 export default function RootLayout({
@@ -25,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${plusJakarta.variable} antialiased`}
       >
         {children}
       </body>

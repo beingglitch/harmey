@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { LogoWithText } from '@/components/Logo';
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -37,17 +38,8 @@ export default function Navigation() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <Link href="/" className="flex items-center space-x-2 group">
-                <motion.div
-                  className="w-8 h-8 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-                >
-                  <span className="text-white font-bold text-xl">H</span>
-                </motion.div>
-                <span className="text-xl font-semibold text-slate-900 group-hover:text-indigo-600 transition-colors">
-                  Harmay
-                </span>
+              <Link href="/" className="flex items-center">
+                <LogoWithText />
               </Link>
             </motion.div>
 
@@ -58,9 +50,9 @@ export default function Navigation() {
               transition={{ duration: 0.5, delay: 0.1 }}
             >
               {[
+                { href: '#platforms', label: 'Platforms' },
                 { href: '#features', label: 'Features' },
                 { href: '#benefits', label: 'Benefits' },
-                { href: '#testimonials', label: 'Testimonials' },
                 { href: '#faq', label: 'FAQ' },
               ].map((link) => (
                 <motion.div key={link.href} whileHover={{ y: -2 }} transition={{ type: 'spring', stiffness: 400, damping: 10 }}>
@@ -81,24 +73,28 @@ export default function Navigation() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <motion.button
-                className="text-slate-600 hover:text-slate-900 transition-colors hidden md:block"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Sign in
-              </motion.button>
-              <motion.button
-                className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-full font-semibold"
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: '0 10px 20px rgba(99, 102, 241, 0.3)',
-                }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-              >
-                Get started
-              </motion.button>
+              <Link href="/login">
+                <motion.button
+                  className="text-slate-600 hover:text-slate-900 transition-colors hidden md:block font-medium"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Sign in
+                </motion.button>
+              </Link>
+              <Link href="/signup">
+                <motion.button
+                  className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-full font-semibold"
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: '0 10px 20px rgba(99, 102, 241, 0.3)',
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                >
+                  Get started
+                </motion.button>
+              </Link>
             </motion.div>
           </div>
         </div>
