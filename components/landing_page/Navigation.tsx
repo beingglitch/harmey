@@ -15,7 +15,6 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
 
-// You can move this to a separate file if you want
 export const features = [
   {
     icon: (
@@ -132,7 +131,7 @@ export const features = [
   {
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
     title: 'Dedicated Support Team',
@@ -153,7 +152,7 @@ export default function Navigation() {
   const backgroundColor = useTransform(
     scrollYProgress,
     [0, 0.1],
-    ['rgba(255, 255, 255, 0)', 'rgba(255, 255, 255, 0.8)']
+    ['rgba(0,0,0,0)', 'rgba(255,255,255,0.9)']
   );
 
   useEffect(() => {
@@ -165,13 +164,20 @@ export default function Navigation() {
   }, []);
 
   const closeMobile = () => setMobileOpen(false);
+  const onDark = !scrolled && !mobileOpen; // at top over dark hero
+
+  const navText =
+    'transition-colors ' +
+    (onDark ? 'text-slate-100 hover:text-white' : 'text-slate-700 hover:text-slate-900');
+
+  const subtleText = onDark ? 'text-slate-300' : 'text-slate-500';
 
   return (
     <>
       <motion.nav
         style={{ backgroundColor }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? 'backdrop-blur-md shadow-sm' : ''
+          scrolled || mobileOpen ? 'backdrop-blur-md shadow-sm' : ''
         }`}
       >
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
@@ -184,7 +190,7 @@ export default function Navigation() {
               transition={{ duration: 0.5 }}
             >
               <Link href="/" className="flex items-center">
-                <Logo />
+                <Logo onDark={onDark} />
               </Link>
             </motion.div>
 
@@ -197,9 +203,11 @@ export default function Navigation() {
             >
               <NavigationMenu>
                 <NavigationMenuList className="space-x-4">
-                  {/* 1. Product (hover) */}
+                  {/* Product */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-slate-600 hover:text-slate-900 bg-transparent">
+                    <NavigationMenuTrigger
+                      className={`${navText} bg-transparent data-[state=open]:bg-transparent`}
+                    >
                       Product
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -213,7 +221,7 @@ export default function Navigation() {
                               <div className="mb-1 text-xs font-semibold uppercase text-primary">
                                 Harmey Platform
                               </div>
-                              <div className="mb-2 text-lg font-semibold">
+                              <div className="mb-2 text-lg font-semibold text-slate-900">
                                 Build • Lend • Grow
                               </div>
                               <p className="text-muted-foreground text-sm leading-snug">
@@ -240,24 +248,33 @@ export default function Navigation() {
 
                         <div className="grid gap-2">
                           <NavigationMenuLink asChild>
-                            <Link href="#platforms" className="block rounded-md border bg-white p-3 hover:shadow-sm">
-                              <div className="text-sm font-medium">Harmey Vault</div>
+                            <Link
+                              href="#platforms"
+                              className="block rounded-md border bg-white p-3 hover:shadow-sm"
+                            >
+                              <div className="text-sm font-medium text-slate-900">Harmey Vault</div>
                               <p className="text-muted-foreground text-xs leading-snug">
                                 Complete business management suite for construction shops.
                               </p>
                             </Link>
                           </NavigationMenuLink>
                           <NavigationMenuLink asChild>
-                            <Link href="#platforms" className="block rounded-md border bg-white p-3 hover:shadow-sm">
-                              <div className="text-sm font-medium">Harmey Catalyst</div>
+                            <Link
+                              href="#platforms"
+                              className="block rounded-md border bg-white p-3 hover:shadow-sm"
+                            >
+                              <div className="text-sm font-medium text-slate-900">Harmey Catalyst</div>
                               <p className="text-muted-foreground text-xs leading-snug">
                                 Buy Now, Pay Later for construction material buyers.
                               </p>
                             </Link>
                           </NavigationMenuLink>
                           <NavigationMenuLink asChild>
-                            <Link href="#platforms" className="block rounded-md border bg-white p-3 hover:shadow-sm">
-                              <div className="text-sm font-medium">Harmey Sentinel</div>
+                            <Link
+                              href="#platforms"
+                              className="block rounded-md border bg-white p-3 hover:shadow-sm"
+                            >
+                              <div className="text-sm font-medium text-slate-900">Harmey Sentinel</div>
                               <p className="text-muted-foreground text-xs leading-snug">
                                 AI-powered risk and intelligence engine for credit and demand.
                               </p>
@@ -268,9 +285,11 @@ export default function Navigation() {
                     </NavigationMenuContent>
                   </NavigationMenuItem>
 
-                  {/* 2. Solutions (hover) – uses features array, equal card size */}
+                  {/* Solutions */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-slate-600 hover:text-slate-900 bg-transparent">
+                    <NavigationMenuTrigger
+                      className={`${navText} bg-transparent data-[state=open]:bg-transparent`}
+                    >
                       Solutions
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -294,7 +313,9 @@ export default function Navigation() {
                                   </div>
                                 </div>
                                 <div className="mt-3">
-                                  <div className="text-sm font-medium">{feature.title}</div>
+                                  <div className="text-sm font-medium text-slate-900">
+                                    {feature.title}
+                                  </div>
                                   <p className="mt-1 text-xs text-muted-foreground leading-snug line-clamp-3">
                                     {feature.description}
                                   </p>
@@ -312,31 +333,25 @@ export default function Navigation() {
                     </NavigationMenuContent>
                   </NavigationMenuItem>
 
-                  {/* 3. Impact (simple link to benefits section) */}
+                  {/* Impact */}
                   <NavigationMenuItem>
                     <NavigationMenuLink
                       asChild
                       className={navigationMenuTriggerStyle() + ' bg-transparent'}
                     >
-                      <Link
-                        href="#benefits"
-                        className="text-slate-600 hover:text-slate-900 relative group"
-                      >
+                      <Link href="#benefits" className={`${navText} relative`}>
                         Impact
                       </Link>
                     </NavigationMenuLink>
                   </NavigationMenuItem>
 
-                  {/* 4. Pricing (simple link to FAQ/pricing section) */}
+                  {/* Pricing */}
                   <NavigationMenuItem>
                     <NavigationMenuLink
                       asChild
                       className={navigationMenuTriggerStyle() + ' bg-transparent'}
                     >
-                      <Link
-                        href="#faq"
-                        className="text-slate-600 hover:text-slate-900 relative group"
-                      >
+                      <Link href="#faq" className={`${navText} relative`}>
                         Pricing
                       </Link>
                     </NavigationMenuLink>
@@ -354,7 +369,9 @@ export default function Navigation() {
             >
               <Link href="/login">
                 <motion.button
-                  className="text-slate-600 hover:text-slate-900 transition-colors font-medium"
+                  className={`${subtleText} hover:${
+                    onDark ? 'text-white' : 'text-slate-900'
+                  } transition-colors font-medium`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -363,11 +380,12 @@ export default function Navigation() {
               </Link>
               <Link href="/signup">
                 <motion.button
-                  className="bg-primary text-white px-6 py-2 rounded-sm font-semibold"
-                  whileHover={{
-                    scale: 1.05,
-                    boxShadow: '0 10px 20px rgba(99, 102, 241, 0.3)',
-                  }}
+                  className={
+                    onDark
+                      ? 'border border-primary text-slate-100 px-5 py-2 rounded-sm text-sm font-semibold bg-primary'
+                      : 'bg-primary text-white px-6 py-2 rounded-sm font-semibold'
+                  }
+                  whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                 >
@@ -378,14 +396,16 @@ export default function Navigation() {
 
             {/* Mobile toggle */}
             <motion.button
-              className="md:hidden w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center z-[70]"
+              className={`md:hidden w-10 h-10 rounded-full shadow-md flex items-center justify-center z-[70] ${
+                onDark ? 'bg-black/50 border border-white/20' : 'bg-white'
+              }`}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setMobileOpen((prev) => !prev)}
               aria-label="Toggle navigation"
             >
               <svg
-                className="w-6 h-6 text-slate-900"
+                className={`w-6 h-6 ${onDark ? 'text-slate-100' : 'text-slate-900'}`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -419,7 +439,7 @@ export default function Navigation() {
             {/* Backdrop */}
             <button
               aria-label="Close navigation"
-              className="absolute inset-0 bg-black/25"
+              className="absolute inset-0 bg-black/40"
               onClick={closeMobile}
             />
 

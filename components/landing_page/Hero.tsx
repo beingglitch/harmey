@@ -94,7 +94,7 @@ export default function Hero() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen flex items-center overflow-hidden bg-linear-to-b from-white via-slate-50 to-slate-100"
+      className="relative min-h-screen flex items-center overflow-hidden bg-black"
     >
       {/* Background */}
       <div className="absolute inset-0 overflow-hidden">
@@ -113,7 +113,7 @@ export default function Hero() {
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.5, ease: 'easeOut' }}
-                className="hero-badge inline-flex items-center gap-2 px-4 py-1.5 bg-white/80 backdrop-blur-sm rounded-full border border-slate-200 shadow-sm"
+                className="hero-badge inline-flex items-center gap-2 px-4 py-1.5 bg-black/80 backdrop-blur-sm rounded-full border border-slate-800 shadow-sm"
               >
                 <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
                 <span className="text-xs lg:text-sm font-medium text-slate-700">
@@ -123,17 +123,17 @@ export default function Hero() {
 
               {/* Title */}
               <div className="overflow-hidden">
-                <h1 className="text-4xl xl:text-5xl 2xl:text-[3.8rem] font-bold text-slate-900 leading-tight">
+                <h1 className="text-4xl xl:text-5xl 2xl:text-[3.8rem] font-bold text-slate-100 leading-tight">
                   <div className="hero-title">Smart Lending &</div>
                   <div className="hero-title">Inventory Platform for</div>
-                  <div className="hero-title text-primary">
+                  <div className="hero-title">
                     Construction Commerce
                   </div>
                 </h1>
               </div>
 
               {/* Subtitle */}
-              <p className="hero-subtitle text-base sm:text-lg lg:text-xl text-slate-600 leading-relaxed max-w-xl">
+              <p className="hero-subtitle text-base sm:text-lg lg:text-xl text-slate-100 leading-relaxed max-w-xl">
                 Customers get instant credit to buy materials. Shops get working capital to stock
                 inventory. One platform to manage, scale, and grow your construction business.
               </p>
@@ -151,7 +151,7 @@ export default function Hero() {
                 </Link>
 
                 <motion.button
-                  className="w-full sm:w-auto text-slate-800 px-7 py-3 rounded-sm text-sm sm:text-base font-semibold border border-slate-200 bg-white/70 backdrop-blur-sm hover:border-primary hover:text-primary"
+                  className="w-full sm:w-auto text-slate-800 px-7 py-3 rounded-sm text-sm sm:text-base font-semibold border border-slate-200 bg-white backdrop-blur-sm hover:border-primary hover:text-primary"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.96 }}
                 >
@@ -166,7 +166,7 @@ export default function Hero() {
                     ⚡
                   </div>
                   <div>
-                    <div className="text-sm font-semibold text-slate-900">60 sec</div>
+                    <div className="text-sm font-semibold text-slate-100">60 sec</div>
                     <div className="text-xs text-slate-500">Credit approval</div>
                   </div>
                 </div>
@@ -175,7 +175,7 @@ export default function Hero() {
                     🏗️
                   </div>
                   <div>
-                    <div className="text-sm font-semibold text-slate-900">500+</div>
+                    <div className="text-sm font-semibold text-slate-100">500+</div>
                     <div className="text-xs text-slate-500">Supplier network</div>
                   </div>
                 </div>
@@ -184,7 +184,7 @@ export default function Hero() {
                     📊
                   </div>
                   <div>
-                    <div className="text-sm font-semibold text-slate-900">120 days</div>
+                    <div className="text-sm font-semibold text-slate-100">120 days</div>
                     <div className="text-xs text-slate-500">Flexible terms</div>
                   </div>
                 </div>
@@ -192,13 +192,12 @@ export default function Hero() {
             </div>
 
             {/* Right Image (absolute on large screens, normal on mobile) */}
-            <div className="mt-10 lg:mt-0">
-              <motion.div
-                className="hero-image relative max-w-2xl mx-auto lg:max-w-none lg:absolute lg:right-0 lg:bottom-10 lg:w-[520px] 2xl:w-[680px]"
+?              <motion.div
+                className="hero-image max-w-2xl mx-auto lg:max-w-none lg:absolute -right-12 -bottom-12 lg:w-[620px] 2xl:w-[880px]"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="rounded-md border border-slate-200 bg-white shadow-xl overflow-hidden">
+                <div className="">
                   <Image
                     src={HEROIMAGE}
                     alt="Harmey Platform Dashboard"
@@ -212,7 +211,6 @@ export default function Hero() {
               </motion.div>
             </div>
           </div>
-        </div>
       </motion.div>
 
       {/* Scroll Indicator */}
@@ -225,12 +223,12 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-          className="w-6 h-10 border border-slate-300 rounded-full flex justify-center pt-2 bg-white/60 backdrop-blur-sm"
+          className="w-6 h-10 border border-slate-300 rounded-full flex justify-center pt-2 bg-white backdrop-blur-sm"
         >
           <motion.div
             animate={{ y: [0, 10, 0], opacity: [1, 0, 1] }}
             transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-            className="w-1.5 h-1.5 bg-slate-400 rounded-full"
+            className="w-1.5 h-1.5 bg-black rounded-full"
           />
         </motion.div>
       </motion.div>
