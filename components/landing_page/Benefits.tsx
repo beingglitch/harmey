@@ -9,25 +9,44 @@ gsap.registerPlugin(ScrollTrigger);
 
 const benefits = [
   {
-    title: 'Increase your project capacity',
-    description: 'Take on more projects simultaneously without worrying about cash flow. Harmay provides the working capital you need to purchase materials upfront.',
+    title: 'Scale Your Business 3x Faster',
+    description: 'Take on multiple projects simultaneously without cash flow constraints. Instant credit for customers means more sales, while working capital for inventory keeps your shop fully stocked. Close deals faster and grow revenue exponentially.',
     stat: '3x',
-    statLabel: 'More projects per year',
+    statLabel: 'Average revenue growth',
+    secondaryStat: '₹50L+',
+    secondaryLabel: 'Average credit limit',
     image: '📈',
+    highlights: ['More concurrent projects', 'Higher customer conversion', 'Faster deal closures'],
   },
   {
-    title: 'Improve cash flow management',
-    description: 'Keep your cash reserves intact for payroll, equipment, and emergencies. Pay for materials on flexible terms that align with your payment schedules.',
+    title: 'Eliminate Cash Flow Bottlenecks',
+    description: 'Stop choosing between paying suppliers and meeting payroll. Our flexible 30-120 day payment terms align with your project cycles. Keep cash reserves for emergencies, equipment upgrades, and business expansion opportunities.',
     stat: '45%',
-    statLabel: 'Better cash position',
+    statLabel: 'Improved cash position',
+    secondaryStat: '120 days',
+    secondaryLabel: 'Flexible payment terms',
     image: '💰',
+    highlights: ['Preserve working capital', 'Predictable cash flow', 'No more payment delays'],
   },
   {
-    title: 'Build stronger supplier relationships',
-    description: 'Pay suppliers on time, every time. Strengthen your relationships and negotiate better rates with reliable payment through Harmay.',
-    stat: '98%',
-    statLabel: 'On-time payments',
+    title: 'Build Unbreakable Supplier Trust',
+    description: 'Become a preferred customer with guaranteed on-time payments. Access better pricing, priority delivery, and exclusive deals. Our automated payment system ensures you never miss a deadline, strengthening your supply chain relationships.',
+    stat: '98.5%',
+    statLabel: 'On-time payment rate',
+    secondaryStat: '500+',
+    secondaryLabel: 'Verified suppliers',
     image: '🤝',
+    highlights: ['Better pricing power', 'Priority fulfillment', 'Stronger partnerships'],
+  },
+  {
+    title: 'Reduce Operational Complexity',
+    description: 'Replace manual processes with intelligent automation. AI-powered inventory alerts prevent stockouts, automated invoicing saves hours weekly, and real-time dashboards give you complete business visibility. Focus on growth, not admin work.',
+    stat: '10hrs',
+    statLabel: 'Saved per week',
+    secondaryStat: '99.2%',
+    secondaryLabel: 'System accuracy',
+    image: '⚡',
+    highlights: ['Automated operations', 'Smart alerts & insights', 'Zero paperwork'],
   },
 ];
 
@@ -90,11 +109,11 @@ export default function Benefits() {
       {/* Background parallax elements */}
       <motion.div
         style={{ y: y1 }}
-        className="absolute top-40 right-20 w-96 h-96 bg-gradient-to-br from-indigo-200/30 to-purple-200/30 rounded-full blur-3xl pointer-events-none"
+        className="absolute top-40 right-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none"
       />
       <motion.div
         style={{ y: y2 }}
-        className="absolute bottom-40 left-20 w-96 h-96 bg-gradient-to-br from-blue-200/30 to-cyan-200/30 rounded-full blur-3xl pointer-events-none"
+        className="absolute bottom-40 left-20 w-96 h-96 bg-secondary/10 rounded-full blur-3xl pointer-events-none"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -103,18 +122,18 @@ export default function Benefits() {
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold mb-4"
+            className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4"
           >
-            Benefits
+            🎯 Real Business Impact
           </motion.div>
           <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">
-            Built for construction{' '}
-            <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-              professionals
+            Built for Construction{' '}
+            <span className="text-primary">
+              Professionals
             </span>
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            We understand the unique challenges of the construction industry. Harmay is designed to help you overcome them.
+            Real results from real construction businesses. See how Harmey transforms operations, accelerates growth, and maximizes profitability.
           </p>
         </div>
 
@@ -135,7 +154,7 @@ export default function Benefits() {
               >
                 <div className="relative group">
                   <motion.div
-                    className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-3xl p-12 flex items-center justify-center text-9xl h-96 overflow-hidden"
+                    className="bg-linear-to-br from-primary/5 to-secondary/5 rounded-3xl p-12 flex items-center justify-center text-9xl h-96 overflow-hidden border border-slate-100"
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                   >
@@ -156,7 +175,7 @@ export default function Benefits() {
 
                   {/* Floating decorative elements */}
                   <motion.div
-                    className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl opacity-60 blur-xl"
+                    className="absolute -top-4 -right-4 w-16 h-16 bg-primary/20 rounded-sm opacity-60 blur-xl"
                     animate={{
                       y: [0, -15, 0],
                       rotate: [0, 10, 0],
@@ -168,7 +187,7 @@ export default function Benefits() {
                     }}
                   />
                   <motion.div
-                    className="absolute -bottom-4 -left-4 w-20 h-20 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl opacity-60 blur-xl"
+                    className="absolute -bottom-4 -left-4 w-20 h-20 bg-secondary/20 rounded-2xl opacity-60 blur-xl"
                     animate={{
                       y: [0, 15, 0],
                       rotate: [0, -10, 0],
@@ -189,25 +208,50 @@ export default function Benefits() {
                 viewport={{ once: true, margin: '-100px' }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 rounded-full text-sm font-semibold mb-4">
-                  <span className="w-2 h-2 bg-indigo-600 rounded-full animate-pulse"></span>
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
+                  <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
                   Benefit {index + 1}
                 </div>
                 <h3 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
                   {benefit.title}
                 </h3>
-                <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                <p className="text-lg text-slate-600 mb-6 leading-relaxed">
                   {benefit.description}
                 </p>
-                <motion.div
-                  className="bg-gradient-to-br from-white to-slate-50 rounded-2xl p-6 border border-slate-200 inline-block shadow-lg"
-                  whileHover={{ y: -5, boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)' }}
-                >
-                  <div className="text-5xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-1">
-                    {benefit.stat}
-                  </div>
-                  <div className="text-sm text-slate-600">{benefit.statLabel}</div>
-                </motion.div>
+
+                {/* Highlights */}
+                <div className="mb-6 space-y-2">
+                  {benefit.highlights.map((highlight, i) => (
+                    <div key={i} className="flex items-center gap-2 text-slate-700">
+                      <svg className="w-5 h-5 text-green-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-sm font-medium">{highlight}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Stats Cards */}
+                <div className="grid grid-cols-2 gap-4">
+                  <motion.div
+                    className="bg-linear-to-br from-white to-slate-50 rounded-sm p-5 border border-slate-200 shadow-lg"
+                    whileHover={{ y: -5, boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)' }}
+                  >
+                    <div className="text-4xl font-bold text-primary mb-1">
+                      {benefit.stat}
+                    </div>
+                    <div className="text-xs text-slate-600 font-medium">{benefit.statLabel}</div>
+                  </motion.div>
+                  <motion.div
+                    className="bg-linear-to-br from-white to-slate-50 rounded-sm p-5 border border-slate-200 shadow-lg"
+                    whileHover={{ y: -5, boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)' }}
+                  >
+                    <div className="text-4xl font-bold text-secondary mb-1">
+                      {benefit.secondaryStat}
+                    </div>
+                    <div className="text-xs text-slate-600 font-medium">{benefit.secondaryLabel}</div>
+                  </motion.div>
+                </div>
               </motion.div>
             </div>
           ))}
@@ -221,7 +265,7 @@ export default function Benefits() {
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.8 }}
         >
-          <div className="bg-linear-to-br from-primary/5 to-secondary/5 rounded-3xl p-12 border border-slate-200">
+          <div className="bg-linear-to-br from-primary/5 to-secondary/5 rounded-md p-12 border border-slate-200">
             <h3 className="text-3xl font-bold text-slate-900 mb-4">
               Ready to Transform Your Business?
             </h3>
@@ -230,7 +274,7 @@ export default function Benefits() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button
-                className="px-8 py-4 bg-primary text-white rounded-full font-semibold hover:opacity-90 transition-opacity inline-flex items-center justify-center gap-2"
+                className="px-8 py-4 bg-primary text-white rounded-sm font-semibold hover:opacity-90 transition-opacity inline-flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -247,7 +291,7 @@ export default function Benefits() {
                 </motion.svg>
               </motion.button>
               <motion.button
-                className="px-8 py-4 bg-white text-slate-700 rounded-full font-semibold border-2 border-slate-200 hover:border-primary transition-colors inline-flex items-center justify-center gap-2"
+                className="px-8 py-4 bg-white text-slate-700 rounded-sm font-semibold border-2 border-slate-200 hover:border-primary transition-colors inline-flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
